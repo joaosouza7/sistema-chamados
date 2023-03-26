@@ -2,7 +2,7 @@ import { useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 import { auth, db } from "../services/firebaseConnection";
@@ -15,6 +15,22 @@ function AuthProvider({ children }) {
 
     const [user, setUser] = useState(null);
     const [loadingAuth, setLoadingAuth] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function loadUser() {
+            const storageUser = localStorage.getItem("@ticketsPRO");
+
+            if(storageUser) {
+                setUser(JSON.parse(storageUser));
+                setLoading(false);
+            }
+
+            setLoading(false);
+        }
+
+        loadUser();
+    }, [])
 
     // Fazer login
     async function signIn(email, password) {
@@ -84,8 +100,15 @@ function AuthProvider({ children }) {
 
     }
 
+    // Salvar dados do usuário no local storage
     function storageUser(data) {
         localStorage.setItem("@ticketsPRO", JSON.stringify(data));
+    }
+
+    async function logout() {
+        await signOut(auth);
+        localStorage.removeItem("@ticketsPRO");
+        setUser(null);
     }
 
     return (
@@ -94,7 +117,9 @@ function AuthProvider({ children }) {
             user,
             signIn,
             signUp,
+            logout,
             loadingAuth,
+            loading,
         }}>
             {children}
         </AuthContext.Provider>

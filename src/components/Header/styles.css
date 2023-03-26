@@ -1,0 +1,218 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    background-color: rgba( 0, 0, 0, 0.9 );
+    box-shadow: 5px 0px 9px -3px rgba(0,0,0,0.82);
+    -webkit-box-shadow: 5px 0px 9px -3px rgba(0,0,0,0.82);
+    color: #fefefe;
+    position: fixed;
+    width: 210px;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(208, 208, 208, 0.18);
+}
+
+.name span {
+    margin-left: .5rem;
+    color: #FFF;
+}
+
+/**/
+
+.user-area {
+    background: url("../../assets/cover.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    margin-bottom: .3rem;
+    border-bottom: 1px solid rgba(208, 208, 208, 0.18);
+}
+
+.user-area img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.user-area img:hover {
+    transform: scale(1.2);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info p {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.user-info span {
+    margin-top: .2rem;
+    font-size: 12px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+/**/
+
+.links-area {
+    padding: .5rem 1.3rem;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+}
+
+.link div {
+    padding: 8px 10px;
+    background-color: rgba(255,255,255,.1);
+    border-radius: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link:hover svg {
+    animation: jello 2s ease 0s 1 normal forwards;
+    color: rgba(236, 203, 12, 0.9)!important;
+}
+
+.link:hover span {
+    color: #FFF;
+}
+
+.link span {
+    color: rgba(254, 254, 254, .7);
+    font-size: 14px;
+    margin-left: .8rem;
+}
+
+/**/
+
+.end {
+    display: none;
+}
+
+.end > button {
+    border: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    font-size: 1rem;
+    color: rgba(254, 254, 254, .7);
+    font-weight: 300;
+}   
+
+.end > button:hover {
+    color: rgb(211, 41, 58);
+}
+
+.content {
+    margin-left: 210px;
+    padding: 10px 16px;
+    overflow: hidden;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 50px;
+        overflow: hidden;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .user-area {
+        padding: 15px 0;
+    }
+
+    .user-area img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .links-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: .5rem;
+    }
+
+    .link > span {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .end {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        transition: margin 0.4s;
+        margin-left: 50px;
+    }
+}
+
+/* ANIMAÇÕES */
+
+@keyframes jello {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
