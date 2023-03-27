@@ -23,7 +23,7 @@ function Header() {
                 <img src={user?.avatarUrl === null ? avatarImg : user?.avatarUrl} alt="Foto do usuário" />
 
                 <div className="user-info">
-                    <p>Joao Matteo</p>
+                    <p>{user?.name}</p>
                     <span>
                         <VscCircleFilled size={15} color="#24cf68" />
                         Online
