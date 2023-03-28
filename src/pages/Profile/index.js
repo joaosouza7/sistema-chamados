@@ -108,7 +108,7 @@ function Profile() {
                     <FiSettings size={20} color="#f8f8f8" />
                 </Title>
 
-                <div className="container-profile">
+                <div className="container">
 
                     <form className="form-profile" onSubmit={handleSubmit}>
                         <label className="label-avatar">
