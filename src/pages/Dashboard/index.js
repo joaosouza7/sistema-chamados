@@ -9,6 +9,7 @@ import { format } from "date-fns";
 
 import Header from "../../components/Header";
 import Title from "../../components/Title";
+import Modal from "../../components/Modal";
 
 import "./styles.css";
 
@@ -22,6 +23,9 @@ function Dashboard() {
     const [isEmpty, setIsEmpty] = useState(false);
     const [lastDocs, setLastDocs] = useState();
     const [loadingMore, setLoadingMore] = useState(false);
+
+    const [showPostModal, setShowPostModal] = useState(false);
+    const [detail, setDetail] = useState();
 
     useEffect(() => {
         async function loadChamados() {
@@ -97,6 +101,11 @@ function Dashboard() {
         await updateState(querySnapshot);
     }
 
+    function toggleModal(item) {
+        setShowPostModal(!showPostModal);
+        setDetail(item);
+    }
+
     return (
         <div>
             <Header />
@@ -146,12 +155,14 @@ function Dashboard() {
                                                 </td>
                                                 <td data-label="Cadastrado">{item.createdFormat}</td>
                                                 <td data-label="#">
-                                                    <button className="action" style={{ backgroundColor: "#3583f6" }}>
+                                                    <button className="action" style={{ backgroundColor: "#3583f6" }} onClick={ () => toggleModal(item)}>
                                                         <FiSearch size={15} color="#FFF" />
                                                     </button>
-                                                    <Link to={`/new/${item.id}`} className="action" style={{ backgroundColor: "#fad815" }}>
-                                                        <FiEdit2 size={15} color="#FFF" />
-                                                    </Link>
+                                                    <button className="action" style={{ backgroundColor: "#fad819" }}>
+                                                        <Link to={`/new/${item.id}`}>
+                                                            <FiEdit2 size={15} color="#FFF" />
+                                                        </Link>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         );
@@ -166,7 +177,15 @@ function Dashboard() {
                     
                 </>
 
-            </div> 
+            </div>
+
+            {showPostModal && (
+                <Modal 
+                    content={detail}
+                    close={ () => setShowPostModal(!showPostModal) }
+                />
+            )}
+
         </div>
     );
 }

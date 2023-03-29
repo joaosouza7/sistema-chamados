@@ -80,4 +80,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .2s;
+}
+
+.logout-btn:hover {
+    border: 1px solid #d3293a;
+    color: #d3293a;
 }

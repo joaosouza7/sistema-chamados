@@ -14,7 +14,7 @@ import avatarImg from "../../assets/avatar.jpg";
 
 function Header() {
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     return (
         <aside className="sidebar">
@@ -67,7 +67,7 @@ function Header() {
             </div>
 
             <div className="end">
-                <button>
+                <button onClick={ () => logout() }>
                     <RiLogoutBoxLine size={17} />
                 </button>
             </div>

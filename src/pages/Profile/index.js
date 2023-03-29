@@ -135,7 +135,7 @@ function Profile() {
 
                 </div>
 
-                <div className="container-profile">
+                <div className="container">
                     <button onClick={ () => logout() } className="logout-btn">Sair</button>
                 </div>
 

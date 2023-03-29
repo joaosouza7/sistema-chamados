@@ -1,0 +1,58 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+}
+
+.modal .container {
+    position: fixed;
+    max-width: 600px;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    background-color: #FFF;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.close {
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.modal h2 {
+    margin-bottom: 1.1rem;
+}
+
+.modal span {
+    font-size: 1.1rem;
+}
+
+.modal span i {
+    padding: 0 .2rem;
+}
+
+.modal .row {
+    margin-bottom: 1rem;
+}
+
+.modal p {
+    padding-top: .5rem;
+    text-align: justify;
+    white-space: pre-wrap;
+    line-height: 150%;
+}
+
+.status-badge {
+    border-radius: .2rem;
+    color: #FFF;
+    margin-left: .7rem;
+}

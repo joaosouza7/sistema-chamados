@@ -45,7 +45,7 @@ function Customers() {
             <Header />
 
             <div className="content">
-                <Title name="Clientes">
+                <Title name="Novo cliente">
                     <RiUser3Line size={20} />
                 </Title>
 
