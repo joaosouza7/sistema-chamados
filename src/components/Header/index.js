@@ -59,7 +59,7 @@ function Header() {
                             <FiSettings size={15} color="#FFF" />
                         </div>
 
-                        <span>Configurações</span>
+                        <span>Meu perfil</span>
                     </div>
                 </Link>
 
